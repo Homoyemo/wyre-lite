@@ -196,7 +196,7 @@ const ThemeLayout = WrappedComponent => {
               }}
             >
               <Row>
-                <Col lg={!topMenu ? 4 : 3} sm={6} xs={12} className="align-center-v navbar-brand">
+                <Col lg={!topMenu ? 4 : 3} sm={6} xs={12} className="logo-cont align-center-v navbar-brand">
                   {!topMenu || window.innerWidth <= 991 ? (
                     <Button type="link" onClick={toggleCollapsed}>
                       <img src={require(`../static/img/icon/${collapsed ? 'right.svg' : 'left.svg'}`)} alt="menu" />
@@ -214,7 +214,8 @@ const ThemeLayout = WrappedComponent => {
                 </Col>
 
                 <Col lg={!topMenu ? 14 : 15} md={8} sm={0} xs={0}>
-                  {topMenu && window.innerWidth > 991 ? <TopMenu /> : <HeaderSearch rtl={rtl} darkMode={darkMode} />}
+                  {/* {topMenu && window.innerWidth > 991 ? <TopMenu /> : <HeaderSearch rtl={rtl} darkMode={darkMode} />} */}
+                  <TopMenu />
                 </Col>
 
                 <Col lg={6} md={10} sm={0} xs={0}>
@@ -250,9 +251,9 @@ const ThemeLayout = WrappedComponent => {
                 <Col md={0} sm={18} xs={12}>
                   <>
                     <div className="mobile-action">
-                      <Link className="btn-search" onClick={handleSearchHide} to="#">
+                      {/* <Link className="btn-search" onClick={handleSearchHide} to="#">
                         {searchHide ? <FeatherIcon icon="search" /> : <FeatherIcon icon="x" />}
-                      </Link>
+                      </Link> */}
                       <Link className="btn-auth" onClick={onShowHide} to="#">
                         <FeatherIcon icon="more-vertical" />
                       </Link>
@@ -289,7 +290,6 @@ const ThemeLayout = WrappedComponent => {
                       renderView={renderView}
                       renderTrackVertical={renderTrackVertical}
                     >
-                      <p className="sidebar-nav-title">MAIN MENU</p>
                       <MenueItems
                         topMenu={topMenu}
                         rtl={rtl}
@@ -321,7 +321,7 @@ const ThemeLayout = WrappedComponent => {
               </Layout>
             </Layout>
           </Layout>
-          <Link
+          {/* <Link
             to="#"
             className="customizer-trigger"
             onClick={() => {
@@ -329,7 +329,7 @@ const ThemeLayout = WrappedComponent => {
             }}
           >
             <FeatherIcon icon="settings" />
-          </Link>
+          </Link> */}
           <div className={`${customizerAction ? 'customizer-wrapper show' : 'customizer-wrapper'}`}>
             <div className="customizer">
               <div className="customizer__head">
@@ -442,12 +442,12 @@ const ThemeLayout = WrappedComponent => {
               </div>
             </div>
           </div>
-          <span
+          {/* <span
             className={`${customizerAction ? 'overlay-dark show' : 'overlay-dark'}`}
             onClick={() => {
               showCustomizer();
             }}
-          />
+          /> */}
         </Div>
       );
     }

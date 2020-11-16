@@ -2,6 +2,12 @@ import Styled from 'styled-components';
 
 const Div = Styled.div`
     position: relative;
+    // .logo-cont {
+    //     background-color: #5616F5;
+    //     width: 10px;
+    //     margin-left: -47px;
+    //     padding-left: 2%;
+    // }
     header{
         box-shadow: 0 2px 30px ${({ theme }) => theme['gray-solid']}10;
         ${({ darkMode }) => (darkMode ? `background: #272B41;` : '')};
@@ -242,11 +248,17 @@ const Div = Styled.div`
             @media only screen and (max-width: 767px){
                 padding: ${({ theme }) => (theme.rtl ? '0 0px 0 15px' : '0 15px 0 0px')};
             }
+            @media only screen and (min-width: 1201px){
+                display:none;
+            }
+        }
         }
     }
 
     /* Sidebar styles */
     .ant-layout-sider{
+        background-color: #5616F5;
+        color: white;
         box-shadow: 0 0 30px #9299B810;
         @media (max-width: 991px){
             box-shadow: 0 0 10px #00000020;
@@ -274,18 +286,20 @@ const Div = Styled.div`
             }
 
             .ant-menu{
+                background-color: #5616F5;
+                
                 overflow-x: hidden;
                 ${({ theme }) => (theme.rtl ? 'border-left' : 'border-right')}: 0 none;
                 .ant-menu-submenu, .ant-menu-item{
                     .feather{
                         width: 16px;
                         font-size: 16px;
-                        color: ${({ theme }) => theme['extra-light-color']};
+                        color: white;
                     }
                     span{
                         ${({ theme }) => (!theme.rtl ? 'padding-left' : 'padding-right')}: 20px;
                         display: inline-block;
-                        color: ${({ theme }) => theme['dark-color']};
+                        color: white;
                         transition: 0.3s ease;
                     }
                 }
@@ -293,6 +307,8 @@ const Div = Styled.div`
                     .ant-menu-submenu-title{
                         display: flex;
                         align-items: center;
+                        color: white; 
+                        // i touched this
                     }
                 }
                 .ant-menu-submenu-inline{
@@ -357,7 +373,7 @@ const Div = Styled.div`
                         align-items: center;
                         .feather{
                             width: 16px;
-                            color: ${({ theme }) => theme['extra-light-color']};
+                            color: white;
                         }
                         span{
                             ${({ theme }) => (!theme.rtl ? 'padding-left' : 'padding-right')}: 20px;
@@ -624,6 +640,7 @@ const TopMenuSearch = Styled.div`
 
 const TopMenuStyle = Styled.div`
     .strikingDash-top-menu{
+        width:900px;
         ul{
             li{
                 display: inline-block;
@@ -685,6 +702,11 @@ const TopMenuStyle = Styled.div`
                         opacity: 1;
                         visibility: visible;
                     }
+                    >.paraModal{
+                        top: 64px;
+                        opacity: 1;
+                        visibility: visible;
+                    }
                 }
                 a{
                     display: flex;
@@ -728,11 +750,31 @@ const TopMenuStyle = Styled.div`
                                     ${({ theme }) => (theme.rtl ? 'right' : 'left')}: 180px;
                                 }
                             }
+                            .paraModal{
+                                top: 0;
+                                ${({ theme }) => (theme.rtl ? 'right' : 'left')}: 250px;
+                                @media only screen and (max-width: 1300px){
+                                    ${({ theme }) => (theme.rtl ? 'right' : 'left')}: 180px;
+                                }
+                            }
                         }
                     }
                 }
             }
         }
+        @media only screen and (max-width: 1360px){
+            
+            .has-subMenu {
+                font-size: 0.9em;
+                padding-right:-20px;
+            }
+            .nav-font{
+                font-size: 0.9em;
+                padding-right:-20px;  
+            }
+    
+        }
+        
         .subMenu{
             width: 250px;
             background: #fff;
@@ -767,7 +809,88 @@ const TopMenuStyle = Styled.div`
                 }
             }
         }
+        .paraModal{
+            width: 250px;
+            background: #fff;
+            border-radius: 6px;
+            position: absolute;
+            ${({ theme }) => (theme.rtl ? 'right' : 'left')}: 0;
+            top: 80px;
+            padding: 12px 0;
+            visibility: hidden;
+            opacity: 0;
+            transition: 0.3s;
+            z-index: 98;
+            box-shadow: 0px 15px 40px 0px rgba(82, 63, 105, 0.15);
+            @media only screen and (max-width: 1300px){
+                width: 180px;
+            }
+            .paramModal{
+                width: 250px;
+                background: #fff;
+                position: absolute;
+                ${({ theme }) => (theme.rtl ? 'right' : 'left')}: 250px;
+                top: 0px;
+                padding: 12px 0;
+                visibility: hidden;
+                opacity: 0;
+                transition: 0.3s;
+                z-index: 98;
+                box-shadow: 0px 15px 40px 0px rgba(82, 63, 105, 0.15);
+                @media only screen and (max-width: 1300px){
+                    width: 200px;
+                    ${({ theme }) => (theme.rtl ? 'right' : 'left')}: 180px;
+                }
+            }
+        }
     }
+    .topMenuSmall{
+        display: flex;
+        flex-direction: column;
+        align-items:center;
+        justify-content: center;
+        // height:50vh;
+    }
+    .topMenuHead {
+        display: flex;
+        flex-direction: column;
+        padding:40px;
+    }
+    .topMenuSub {
+        padding-bottom: 20px;
+    }
+    
+    .paddingNotif {
+        display: flex;
+        flex-direction: row;
+        padding-top:2%;
+    }
+
+    @media only screen and (min-width: 768px){
+      .topMenuSmall {
+          display:none;
+      }
+      .notif-row{
+         margin-right: -150px;
+      }  
+    }
+
+    @media only screen and (min-width: 1433px){
+        .notif-row{
+            margin-right: -250px;
+         } 
+    }
+    @media only screen and (min-width: 1661px){
+        .notif-row{
+            margin-right: -550px;
+         } 
+    }
+
+    .notif-row{
+        display:flex;
+        flex-direction:row;
+    }
+
     // Mega Menu
     .strikingDash-top-menu{
         >ul{

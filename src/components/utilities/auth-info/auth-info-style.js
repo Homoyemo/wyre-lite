@@ -2,6 +2,7 @@ import Styled from 'styled-components';
 
 const InfoWraper = Styled.div`
     display: flex;
+    flex-direction:column;
     justify-content: flex-end;
     align-items: center;
     padding: 16px 0;        

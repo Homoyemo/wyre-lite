@@ -1,6 +1,8 @@
+/* eslint-disable prettier/prettier */
 import React, { useState } from 'react';
 import { Avatar } from 'antd';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
+import { NavLink, Link, useRouteMatch } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import FeatherIcon from 'feather-icons-react';
 import { InfoWraper, NavAuth, UserDropDwon } from './auth-info-style';
@@ -10,11 +12,15 @@ import Settings from './settings';
 import Support from './support';
 import { Popover } from '../../popup/popup';
 import { Dropdown } from '../../dropdown/dropdown';
-
+import { TopMenuStyle } from '../../../layout/style';
 import { logOut } from '../../../redux/authentication/actionCreator';
 import Heading from '../../heading/heading';
+import TopMenuSmall from '../../../layout/TopMenuSmall';
+
+
 
 const AuthInfo = () => {
+  const { path } = useRouteMatch();
   const dispatch = useDispatch();
   const [state, setState] = useState({
     flag: 'english',
@@ -77,42 +83,46 @@ const AuthInfo = () => {
     });
   };
 
-  const country = (
-    <NavAuth>
-      <Link onClick={() => onFlagChangeHandle('english')} to="#">
-        <img src={require('../../../static/img/flag/english.png')} alt="" />
-        <span>English</span>
-      </Link>
-      <Link onClick={() => onFlagChangeHandle('germany')} to="#">
-        <img src={require('../../../static/img/flag/germany.png')} alt="" />
-        <span>Germany</span>
-      </Link>
-      <Link onClick={() => onFlagChangeHandle('spain')} to="#">
-        <img src={require('../../../static/img/flag/spain.png')} alt="" />
-        <span>Spain</span>
-      </Link>
-      <Link onClick={() => onFlagChangeHandle('turky')} to="#">
-        <img src={require('../../../static/img/flag/turky.png')} alt="" />
-        <span>Turky</span>
-      </Link>
-    </NavAuth>
-  );
+  // const country = (
+  //   <NavAuth>
+  //     <Link onClick={() => onFlagChangeHandle('english')} to="#">
+  //       <img src={require('../../../static/img/flag/english.png')} alt="" />
+  //       <span>English</span>
+  //     </Link>
+  //     <Link onClick={() => onFlagChangeHandle('germany')} to="#">
+  //       <img src={require('../../../static/img/flag/germany.png')} alt="" />
+  //       <span>Germany</span>
+  //     </Link>
+  //     <Link onClick={() => onFlagChangeHandle('spain')} to="#">
+  //       <img src={require('../../../static/img/flag/spain.png')} alt="" />
+  //       <span>Spain</span>
+  //     </Link>
+  //     <Link onClick={() => onFlagChangeHandle('turky')} to="#">
+  //       <img src={require('../../../static/img/flag/turky.png')} alt="" />
+  //       <span>Turky</span>
+  //     </Link>
+  //   </NavAuth>
+  // );
 
-  return (
+
+  return ( 
     <InfoWraper>
+      <TopMenuSmall />
+      <TopMenuStyle> 
+      <div className="notif-row">
+      <div className="paddingNotif">
       <Message />
       <Notification />
-
-      <Settings />
-      <Support />
-      <div className="nav-author">
+      </div>
+      {/* <Settings /> */}
+      {/* <Support /> */}
+      {/* <div className="nav-author">
         <Dropdown placement="bottomRight" content={country} trigger="click">
           <Link to="#" className="head-example">
             <img src={require(`../../../static/img/flag/${flag}.png`)} alt="" />
           </Link>
         </Dropdown>
-      </div>
-
+      </div> */}
       <div className="nav-author">
         <Popover placement="bottomRight" content={userContent} action="click">
           <Link to="#" className="head-example">
@@ -120,7 +130,10 @@ const AuthInfo = () => {
           </Link>
         </Popover>
       </div>
+      </div>
+      </TopMenuStyle>
     </InfoWraper>
+
   );
 };
 

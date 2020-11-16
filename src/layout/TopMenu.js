@@ -68,11 +68,11 @@ const TopMenu = () => {
             </ul>
           </li>
 
-          <li className="has-subMenu">
+          <li className="nav-font">
             <Link to="#" className="parent">
-              Apps
+              Score Card
             </Link>
-            <ul className="subMenu">
+            {/* <ul className="subMenu">
               <li>
                 <NavLink onClick={addParentActive} to={`${path}/app/calendar/month`}>
                   <FeatherIcon icon="calendar" />
@@ -187,14 +187,14 @@ const TopMenu = () => {
                   To Do
                 </NavLink>
               </li>
-            </ul>
+            </ul> */}
           </li>
           <li className="mega-item has-subMenu">
             <Link to="#" className="parent">
-              Pages
+              Parameters
             </Link>
             <ul className="megaMenu-wrapper megaMenu-small">
-              <li>
+              {/* <li>
                 <ul>
                   <li>
                     <NavLink onClick={addParentActive} to={`${path}/project/view`}>
@@ -227,7 +227,7 @@ const TopMenu = () => {
                     </NavLink>
                   </li>
                 </ul>
-              </li>
+              </li> */}
               <li>
                 <ul>
                   <li>
@@ -245,7 +245,7 @@ const TopMenu = () => {
                       Pricing
                     </NavLink>
                   </li>
-                  <li>
+                  {/* <li>
                     <NavLink onClick={addParentActive} to={`${path}/pages/faq`}>
                       Faqs
                     </NavLink>
@@ -264,12 +264,34 @@ const TopMenu = () => {
                     <NavLink onClick={addParentActive} to={`${path}/pages/404`}>
                       404
                     </NavLink>
-                  </li>
+                  </li> */}
                 </ul>
               </li>
             </ul>
+            {/* <ul className="paraModal">
+              <li>
+                <NavLink to={`${path}/social`} onClick={addParentActive}>
+                  Social Media
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to={`${path}/business`} onClick={addParentActive}>
+                  Business
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to={`${path}/performance`} onClick={addParentActive}>
+                  Site Perfomence
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to={`${path}/eco`} onClick={addParentActive}>
+                  Ecomerce
+                </NavLink>
+              </li>
+            </ul> */}
           </li>
-          <li className="mega-item has-subMenu">
+          {/* <li className="mega-item has-subMenu">
             <Link to="#" className="parent">
               Components
             </Link>
@@ -540,8 +562,8 @@ const TopMenu = () => {
                 </ul>
               </li>
             </ul>
-          </li>
-          <li className="has-subMenu">
+          </li> */}
+          {/* <li className="has-subMenu">
             <Link to="#" className="parent">
               Features
             </Link>
@@ -666,7 +688,32 @@ const TopMenu = () => {
                 </ul>
               </li>
             </ul>
+          </li> */}
+
+          <li className="nav-font">
+            <Link to="#" className="parent">
+              Report
+            </Link>
           </li>
+
+          <li className="nav-font">
+            <Link to="#" className="parent">
+              Cost Tracker
+            </Link>
+          </li>
+
+          <li className="nav-font">
+            <Link to="#" className="parent">
+              Billing
+            </Link>
+          </li>
+
+          <li className="nav-font">
+            <Link to="#" className="parent">
+              Messages
+            </Link>
+          </li>
+
         </ul>
       </div>
     </TopMenuStyle>
